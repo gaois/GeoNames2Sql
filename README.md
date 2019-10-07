@@ -36,7 +36,7 @@ This will output a collection of dynamic linked libraries (.dll files) and an ap
 
 ## Usage
 
-GeoNames2Sql allows you to compose the contents of your output database. For example, you may not need in-depth coverage of all countries in the world; or, you may only need a subset of alternate language data. The exact makeup the target database can be specified within the configuration file.
+GeoNames2Sql allows you to compose the contents of your output database. For example, you may not need in-depth coverage of all countries in the world; or, you may only need a subset of alternate language data. The exact makeup of the target database can be specified within the configuration file.
 
 ### Configuration
 
