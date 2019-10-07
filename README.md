@@ -4,7 +4,7 @@ GeoNames2Sql is a tool built by the Gaois research group at [Fiontar & Scoil na 
 
 ## Status
 
-This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There are not yet tables for feature codes, admin codes, time zones and the other reference lists included in the GeoNames data. These items may be included in the future, if the need arises, and we also welcome PRs from other users.
+This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There are is not at this time provision for feature codes, admin codes, time zones and the other reference lists included in the GeoNames data as these items fall outside the scope of our requirements. These items may be included in the future, if the need arises, and we also welcome PRs from other users.
 
 ## Installation and setup
 
