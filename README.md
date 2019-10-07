@@ -77,8 +77,8 @@ Note that the configuration describes an additive model. For example, the sample
 
 Some other things to note:
 
-- You will not need to retrieve the GeoNames raw data dumps yourself. The application will do this for you. This is why you need to specify the DataDirectory where these files will be stored.
-- Some GeoNames raw text files range from 0.5-1.5GB unzipped, depending on the configuration you choose. Ensure you have adequate disk space.
+- You will not need to retrieve the GeoNames raw data dumps yourself. The application will do this for you. This is why you need to specify the `DataDirectory` where these files will be stored.
+- Some GeoNames raw text files range from 0.5-1.5GB unzipped, depending on the configuration you choose. Ensure you have adequate disk space on the drive where your `DataDirectory` is located.
 - The time it takes to populate the database varies according to the configuration, e.g. whether all countries or a subset of countries are specified, how many alternate languages are specified, etc. The sample configuration above typically takes 3-4 hours to populate an empty database. Subsequent updates are much faster.
 
 ### Populating the database
