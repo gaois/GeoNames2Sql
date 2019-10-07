@@ -4,7 +4,7 @@ GeoNames2Sql is a tool built by the Gaois research group at [Fiontar & Scoil na 
 
 ## Status
 
-This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There is not at this time provision for feature codes, admin codes, time zones and the other reference lists included in the full GeoNames data set as these items fall outside the scope of our requirements. These items may be included in the future, if the need arises, and we also welcome PRs from other users.
+This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There is not at this time provision for feature codes, admin codes, time zones and the other reference lists included in the full GeoNames data set as these items fall outside the scope of our requirements. These items may be included in the future, if the need arises, and we also welcome pull requests from other users.
 
 ## Installation and setup
 
@@ -61,7 +61,7 @@ The table below outlines the configuration properties.
 | Key | Description |
 | --- | ----------- |
 | **ConnectionString** | SQL Server database connection string | Note that a connection string for a Sqlite DB must include the `Data Source=` prefix |
-| **DataDirectory** | Where you intend to store the raw data dump files which will be downloaded from the GeoNames data store, prior to DB input. |
+| **DataDirectory** | Where you intend to store the raw data dump files which will be downloaded from the GeoNames data store prior to database insert. |
 | **GeoNames:AllCountries** | If true, GeoNames data will be retrieved for all countries in the GeoNames Gazetteer. If true, neither the `CitiesMinimumPopulation` nor `Countries` values need be specified as all relevant data will be retrieved already. |
 | **GeoNames:AlternateNamesLanguages** | Specify the languages for which you wish to have alternate toponymic names. Provide a comma-separated array of ISO two-letter language codes. If empty, no alternate languages data will be downloaded. |
 | **GeoNames:CitiesMinimumPopulation** | If set, GeoNames data will be retrieved for all cities with at least the minimum population specified. The possible values are **500**, **1000**, **5000** or **15000**. |
@@ -74,3 +74,9 @@ Note that the configuration describes an additive model. For example, the sample
 - It will also contain GeoNames data for all cities globally with a population of over 15,000.
 - It will populate the AlternateNames table with data in two languages.
 - It will populate the CountryInfo table with all relevant data.
+
+Some other things to note:
+
+- You will not need to retrieve the GeoNames raw data dumps yourself. The application will do this for you. This is why you need to specify the DataDirectory where these files will be stored.
+- Some GeoNames raw text files range from 0.5-1.5GB unzipped, depending on the configuration you choose. Ensure you have adequate disk space.
+- The time it takes to populate the database varies according to the configuration, e.g. whether all countries or a subset of countries are specified, how many alternate languages are specified, etc. The sample configuration above typically takes 3-4 hours to populate an empty database. Subsequent updates are much faster.
