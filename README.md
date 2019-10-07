@@ -91,5 +91,7 @@ dotnet ./GeoNames2Sql.dll
 
 The program will start, validate your configuration and describe the makeup of the output database. Follow the instructions on screen to proceed.
 
+![Screenshot](./docs/screenshot.jpg)
+
 ## Updating the database
 
