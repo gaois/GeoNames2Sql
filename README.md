@@ -2,6 +2,15 @@
 
 GeoNames2Sql is a tool built by the Gaois research group at [Fiontar & Scoil na Gaeilge](https://www.gaois.ie), Dublin City University, Ireland to import Gazetteer data from the [GeoNames geographical database](http://www.geonames.org/) and store it in a SQL Server instance. It is essentially an abstraction over the excellent [NGeoNames](https://github.com/RobThree/NGeoNames) library, adding a Command-line Interface and the tools to generate a SQL database. GeoNames2Sql is implemented as a .NET Core 2.1 Console Application, meaning it can run cross-platform. This implementation presumes a SQL Server data store but it should be relatively trivial to implement providers for PostgreSQL or other relational database types.
 
+- [Status](#status)
+- [Installation and setup](#installation-and-setup)
+  - [Database](#database)
+  - [Application](#application)
+ - [Usage](#usage)
+  - [Configuration](#configuration)
+  - [Populating the database](#populating-the-database)
+ - [Updating the database](#updating-the-database)
+
 ## Status
 
 This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There is not at this time provision for feature codes, admin codes, time zones and the other reference lists included in the full GeoNames data set as these items fall outside the scope of our requirements. These items may be included in the future, if the need arises, and we also welcome pull requests from other users.
