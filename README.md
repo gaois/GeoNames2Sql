@@ -4,7 +4,7 @@ GeoNames2Sql is a tool built by the Gaois research group at [Fiontar & Scoil na 
 
 ## Status
 
-This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There are not yet tables for feature codes, admin codes, time zones and the other reference lists included in the GeoNames data. These items may be included in the future, if the needs arises, and we also welcome PRs from other users.
+This application addresses the minimum requirements of the Gaois research group. It is not, as yet, comprehensive for all other use cases. The output data set includes tables for (1) GeoNames, (2) alternate names, and (3) country info. There are not yet tables for feature codes, admin codes, time zones and the other reference lists included in the GeoNames data. These items may be included in the future, if the need arises, and we also welcome PRs from other users.
 
 ## Installation and setup
 
@@ -35,3 +35,35 @@ dotnet build -r win10-x64
 This will output a collection of dynamic linked libraries (.dll files) and an appsettings.json file that you can grab from `<PATH-TO-YOUR-APP>/bin/Debug/netcoreapp2.0/`. Or else, you can just run the application from within Visual Studio.
 
 ## Usage
+
+GeoNames2Sql allows you to compose the contents of your output database. For example, you may not need in-depth coverage of all countries in the world; or, you may only need a subset of alternate language data. The exact makeup the target database can be specified within the configuration file.
+
+### Configuration
+
+Use the **appsettings.json** file to configure your target database, e.g.:
+
+```json
+{
+  "ConnectionString": "Server=localhost;Database=geonames;Trusted_Connection=True;",
+  "DataDirectory": "C:/PATH/TO/DIRECTORY",
+  "GeoNames": {
+    "AllCountries": false,
+    "AlternateNamesLanguages": [ "en", "ga" ],
+    "CitiesMinimumPopulation": 15000,
+    "Countries": ["AT", "BE", "CA", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "IE", "IM", "IT", "LU", "MT", "NL", "NO", "PL", "PT", "US", "SE", "no-country" ],
+    "CountryInfo": true
+  }
+}
+```
+
+The table below outlines the configuration properties.
+
+| Key | Description |
+| --- | ----------- |
+| **ConnectionString** | SQL Server database connection string | Note that a connection string for a Sqlite DB must include the `Data Source=` prefix |
+| **DataDirectory** | Where you intend to store the raw data dump files which will be downloaded from the GeoNames data store, prior to DB input. |
+| **GeoNames:AllCountries** | If true, data will be retrieved for all countries in the GeoNames Gazetteer. If true, neither the `CitiesMinimumPopulation` nor `Countries` values need be specified as all relevant data will be retrieved already. |
+| **GeoNames:AlternateNamesLanguages** | Specify the languages for which you wish to have alternate toponymic names. Provide comma-separated array of ISO Alpha-2 language codes. If empty, no alternate languages data will be downloaded. |
+| **GeoNames:CitiesMinimumPopulation** | If set, GeoNames data will be retrieved for all cities with at least the minimum population specified. The possible values are **500**, **1000**, **5000** or **15000**. |
+| **GeoNames:Countries** |  |
+| **GeoNames:CountryInfo** | If true, the CountryInfo table will be populated. |
