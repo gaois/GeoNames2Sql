@@ -62,8 +62,15 @@ The table below outlines the configuration properties.
 | --- | ----------- |
 | **ConnectionString** | SQL Server database connection string | Note that a connection string for a Sqlite DB must include the `Data Source=` prefix |
 | **DataDirectory** | Where you intend to store the raw data dump files which will be downloaded from the GeoNames data store, prior to DB input. |
-| **GeoNames:AllCountries** | If true, data will be retrieved for all countries in the GeoNames Gazetteer. If true, neither the `CitiesMinimumPopulation` nor `Countries` values need be specified as all relevant data will be retrieved already. |
-| **GeoNames:AlternateNamesLanguages** | Specify the languages for which you wish to have alternate toponymic names. Provide comma-separated array of ISO Alpha-2 language codes. If empty, no alternate languages data will be downloaded. |
+| **GeoNames:AllCountries** | If true, GeoNames data will be retrieved for all countries in the GeoNames Gazetteer. If true, neither the `CitiesMinimumPopulation` nor `Countries` values need be specified as all relevant data will be retrieved already. |
+| **GeoNames:AlternateNamesLanguages** | Specify the languages for which you wish to have alternate toponymic names. Provide a comma-separated array of ISO two-letter language codes. If empty, no alternate languages data will be downloaded. |
 | **GeoNames:CitiesMinimumPopulation** | If set, GeoNames data will be retrieved for all cities with at least the minimum population specified. The possible values are **500**, **1000**, **5000** or **15000**. |
-| **GeoNames:Countries** |  |
+| **GeoNames:Countries** | If set, GeoNames data pertaining to the specified countries will be retrieved. Provide a comma-separated array of ISO Alpha-2 country codes. |
 | **GeoNames:CountryInfo** | If true, the CountryInfo table will be populated. |
+
+Note that the configuration describes an additive model. For example, the sample configuration above will output a database with the following characteristics:
+
+- It will contain all GeoNames data for a specified list of countries.
+- It will also contain GeoNames data for all cities globally with a population of over 15,000.
+- It will populate the AlternateNames table with data in two languages.
+- It will populate the CountryInfo table with all relevant data.
