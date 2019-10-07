@@ -7,8 +7,8 @@ GeoNames2Sql is a tool built by the Gaois research group at [Fiontar & Scoil na 
   - [Database](#database)
   - [Application](#application)
  - [Usage](#usage)
-  - [Configuration](#configuration)
-  - [Populating the database](#populating-the-database)
+   - [Configuration](#configuration)
+   - [Populating the database](#populating-the-database)
  - [Updating the database](#updating-the-database)
 
 ## Status
