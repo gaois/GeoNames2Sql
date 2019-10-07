@@ -95,3 +95,4 @@ The program will start, validate your configuration and describe the makeup of t
 
 ## Updating the database
 
+The GeoNames Gazetteer is updated on an ongoing basis and you may want to periodically bring the data in your SQL database up to speed with the latest changes. To do this, simply re-run the program. GeoNames2Sql will merge any updated data into the current database in a performant manner: no valid pre-existing data are thrown away and the process won't place any undue load on the target database, even in production environments.
