@@ -30,8 +30,8 @@ Then, build the .NET Core solution, specifying your target runtime environment, 
 dotnet build -r win10-x64
 ```
 
-## Usage
-
 **Tip:** See a list of target runtime identifiers [here](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog?irgwc=1&OCID=AID681541_aff_7593_1243925&tduid=(ir_6d4f9ce9N213458eb7517c20a2b9db916)(7593)(1243925)(je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw)()&irclickid=6d4f9ce9N213458eb7517c20a2b9db916#using-rids?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw&epi=je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw).
 
 This will output a collection of dynamic linked libraries (.dll files) and an appsettings.json file that you can grab from `<PATH-TO-YOUR-APP>/bin/Debug/netcoreapp2.0/`. Or else, you can just run the application from within Visual Studio.
+
+## Usage
