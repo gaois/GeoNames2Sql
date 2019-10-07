@@ -24,7 +24,7 @@ Clone the repository to your machine:
 git clone https://github.com/gaois/GeoNames2Sql
 ```
 
-Then, publish the .NET Core solution, specifying your target runtime environment, e.g.:
+Then, publish the .NET Core project in `src/GeoNames2Sql`, specifying your target runtime environment, e.g.:
 
 ```cmd
 dotnet publish -r win10-x64
