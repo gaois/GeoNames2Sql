@@ -24,15 +24,15 @@ Clone the repository to your machine:
 git clone https://github.com/gaois/GeoNames2Sql
 ```
 
-Then, build the .NET Core solution, specifying your target runtime environment, e.g.:
+Then, publish the .NET Core solution, specifying your target runtime environment, e.g.:
 
 ```cmd
-dotnet build -r win10-x64
+dotnet publish -r win10-x64
 ```
 
 **Tip:** See a list of target runtime identifiers [here](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog?irgwc=1&OCID=AID681541_aff_7593_1243925&tduid=(ir_6d4f9ce9N213458eb7517c20a2b9db916)(7593)(1243925)(je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw)()&irclickid=6d4f9ce9N213458eb7517c20a2b9db916#using-rids?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw&epi=je6NUbpObpQ-wDYfcuMFmHDb6Ja3HC_Ryw).
 
-This will output a collection of dynamic linked libraries (.dll files) and an appsettings.json file that you can grab from `<PATH-TO-YOUR-APP>/bin/Debug/netcoreapp2.0/`. Or else, you can just run the application from within Visual Studio.
+This will output a collection of dynamic linked libraries (.dll files) and an appsettings.json file. Copy these files to the directory in which you wish to run the program, if necessary. Or else, you can just run the application from within Visual Studio.
 
 ## Usage
 
@@ -80,3 +80,16 @@ Some other things to note:
 - You will not need to retrieve the GeoNames raw data dumps yourself. The application will do this for you. This is why you need to specify the DataDirectory where these files will be stored.
 - Some GeoNames raw text files range from 0.5-1.5GB unzipped, depending on the configuration you choose. Ensure you have adequate disk space.
 - The time it takes to populate the database varies according to the configuration, e.g. whether all countries or a subset of countries are specified, how many alternate languages are specified, etc. The sample configuration above typically takes 3-4 hours to populate an empty database. Subsequent updates are much faster.
+
+### Populating the database
+
+Having specified the configuration you can now run the program. Change directory to the location of the published GeoName2Sql program and run the following command:
+
+```
+dotnet ./GeoNames2Sql.dll
+```
+
+The program will start, validate your configuration and describe the makeup of the output database. Follow the instructions on screen to proceed.
+
+## Updating the database
+
